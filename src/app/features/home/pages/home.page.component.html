@@ -1,0 +1,23 @@
+<div class="text-center py-4">
+    <h1 class="text-4xl font-extrabold tracking-wide text-gray-900 drop-shadow-lg 
+        bg-gradient-to-r from-blue-500 to-red-500 bg-clip-text text-transparent">
+        American Shop
+    </h1>
+    <p class="text-lg text-gray-600 mt-2">Categorías</p>
+</div>
+<p-dataview #dv [value]="categories()" layout="list">
+    <ng-template #list let-categories>
+        <div *ngFor="let category of categories; let first = first" class="px-6">
+            <div class="relative w-full h-[50px] rounded-lg overflow-hidden cursor-pointer my-4"
+                (click)="navigateToCategory(category)">
+                <div class="absolute inset-0 bg-cover bg-center"
+                    [ngStyle]="{ 'background-image': 'url(' + category.image_url + ')' }"></div>
+                <div class="absolute inset-0 bg-black bg-opacity-5 backdrop-blur-sm"></div>
+
+                <div class="absolute inset-0 flex items-center justify-center text-white text-xl font-bold">
+                    {{ category.name }}
+                </div>
+            </div>
+        </div>
+    </ng-template>
+</p-dataview>
