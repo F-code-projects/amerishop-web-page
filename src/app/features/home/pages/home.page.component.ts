@@ -4,6 +4,8 @@ import { ButtonModule } from 'primeng/button';
 import { CardModule } from 'primeng/card';
 import { DataViewModule } from 'primeng/dataview';
 import { CategoriesService } from '../../categories/services/categories.service';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Category } from '../../categories/model/category.model';
 
 @Component({
   selector: 'app-home-page',
@@ -16,7 +18,7 @@ export class HomePageComponent {
   categories = signal<any>([]);
   layout: 'list' | 'grid' = 'list';
 
-  constructor(private categoryService: CategoriesService) {}
+  constructor(private categoryService: CategoriesService, private route: ActivatedRoute, private router: Router) {}
 
   ngOnInit() {
     this.categoryService.getAll().subscribe((data) => (this.categories.set(data)));
@@ -26,7 +28,9 @@ export class HomePageComponent {
     });
   }
 
-  navigateToCategory(id: number) {
-    window.location.href = `https://www.tienda.com/categoria/${id}`;
-  }
+  navigateToCategory(category: Category) {
+    this.router.navigate(['/category', category.category_id], {
+        state: { categoryName: category.name }, 
+    });
+}
 }
