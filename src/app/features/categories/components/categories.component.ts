@@ -4,6 +4,7 @@ import { TagModule } from 'primeng/tag';
 import { SelectButtonModule } from 'primeng/selectbutton';
 import { FormsModule } from '@angular/forms';
 import { ButtonModule } from 'primeng/button';
+import { SkeletonModule } from 'primeng/skeleton';
 import { CommonModule } from '@angular/common';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ProductsService } from '../../products/services/products.service';
@@ -19,6 +20,7 @@ import { ShoppingCarService } from '../../shopping_car/services/shopping_car.ser
     SelectButtonModule,
     FormsModule,
     ButtonModule,
+    SkeletonModule
   ],
   templateUrl: './categories.component.html',
   styleUrl: './categories.component.css',

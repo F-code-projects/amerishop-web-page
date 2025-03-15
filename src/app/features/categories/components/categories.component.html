@@ -1,6 +1,6 @@
-<p-dataview #dv [value]="products()" layout="grid">
+<p-dataview #dv [value]="products()" layout="grid" [emptyMessage]="'No hay productos disponibles en este momento'">
     <ng-template #grid let-items>
-        <div class="grid grid-cols-12 gap-4">
+        <div *ngIf="items.length > 0; else loadingSkeleton" class="grid grid-cols-12 gap-4">
             <div *ngFor="let product of items" class="col-span-12 sm:col-span-3 md:col-span-3 xl:col-span-3 p-2">
                 <div class="p-6 border rounded flex flex-col">
                     <div class="flex justify-center rounded p-4">
@@ -19,7 +19,7 @@
                         <div class="flex flex-col gap-6 mt-6">
                             <span class="text-2xl font-semibold">{{ product.price | currency: 'PEN' }}</span>
                             <div class="flex gap-2">
-                                <button pButton icon="pi pi-shopping-cart" label="Agregaral carrito"
+                                <button pButton icon="pi pi-shopping-cart" label="Agregar al carrito"
                                     class="flex-auto whitespace-nowrap"
                                     (click)="addItemToShoppingCar(product)"></button>
                             </div>
@@ -30,3 +30,22 @@
         </div>
     </ng-template>
 </p-dataview>
+
+<!-- Skeleton Loader -->
+<ng-template #loadingSkeleton>
+    <div class="grid grid-cols-12 gap-4">
+        <div *ngFor="let _ of [1,2,3,4]" class="col-span-12 sm:col-span-3 md:col-span-3 xl:col-span-3 p-2">
+            <div class="p-6 border rounded flex flex-col">
+                <div class="flex justify-center rounded p-4">
+                    <p-skeleton width="100%" height="150px" borderRadius="10px"></p-skeleton>
+                </div>
+                <div class="pt-6">
+                    <p-skeleton width="60%" height="20px"></p-skeleton>
+                    <p-skeleton width="80%" height="16px" class="mt-2"></p-skeleton>
+                    <p-skeleton width="40%" height="24px" class="mt-4"></p-skeleton>
+                    <p-skeleton width="100%" height="36px" class="mt-4"></p-skeleton>
+                </div>
+            </div>
+        </div>
+    </div>
+</ng-template>

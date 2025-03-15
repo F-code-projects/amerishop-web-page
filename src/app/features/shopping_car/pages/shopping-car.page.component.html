@@ -1,7 +1,11 @@
-<div class="main-content">
+<div *ngIf="shoppingCar().shoppingCarItems.length === 0" class="text-center p-4">
+    <p class="text-gray-600 mt-2">No hay productos en el carrito en este momento.</p>
+</div>
+
+<div class="main-content" *ngIf="shoppingCar().shoppingCarItems.length > 0">
     <div class="flex justify-center px-4">
         <p-card class="w-full max-w-3xl shadow-lg rounded-lg">
-            <p-dataview #dv [value]="shoppingCar().shoppingCarItems" layout="list">
+            <p-dataview #dv [value]="shoppingCar().shoppingCarItems" layout="list" >
                 <ng-template #list let-shoppingCarItems>
                     <div *ngFor="let shoppingCarItem of shoppingCarItems; let first = first">
                         <div class="flex flex-col sm:flex-row items-center sm:items-start p-6 gap-4 border-b">
@@ -36,7 +40,7 @@
 </div>
 
 <!-- Botón fijo en la parte inferior -->
-<div class="fixed-bottom">
+<div class="fixed-bottom" *ngIf="shoppingCar().shoppingCarItems.length > 0">
     <button pButton icon="pi pi-shopping-cart" label="Comprar"
         class="w-full max-w-xs bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 rounded-lg shadow-md transition-all duration-200"
         (click)="sendShippingMessage()"></button>

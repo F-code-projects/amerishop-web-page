@@ -3,6 +3,7 @@ import { Component, signal } from '@angular/core';
 import { ButtonModule } from 'primeng/button';
 import { CardModule } from 'primeng/card';
 import { DataViewModule } from 'primeng/dataview';
+import { SkeletonModule } from 'primeng/skeleton';
 import { CategoriesService } from '../../categories/services/categories.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Category } from '../../categories/model/category.model';
@@ -10,7 +11,7 @@ import { Category } from '../../categories/model/category.model';
 @Component({
   selector: 'app-home-page',
   standalone: true,
-  imports: [ButtonModule, CommonModule, CardModule, DataViewModule],
+  imports: [ButtonModule, CommonModule, CardModule, DataViewModule, SkeletonModule],
   templateUrl: './home.page.component.html',
   styleUrl: './home.page.component.css',
 })
