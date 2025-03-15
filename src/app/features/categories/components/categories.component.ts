@@ -4,6 +4,7 @@ import { TagModule } from 'primeng/tag';
 import { SelectButtonModule } from 'primeng/selectbutton';
 import { FormsModule } from '@angular/forms';
 import { ButtonModule } from 'primeng/button';
+import { CarouselModule } from 'primeng/carousel';
 import { SkeletonModule } from 'primeng/skeleton';
 import { CommonModule } from '@angular/common';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -21,6 +22,7 @@ import { ShoppingCarService } from '../../shopping_car/services/shopping_car.ser
     FormsModule,
     ButtonModule,
     SkeletonModule,
+    CarouselModule
   ],
   templateUrl: './categories.component.html',
   styleUrl: './categories.component.css',
@@ -40,11 +42,9 @@ export class CategoriesComponent {
       this.categoryId = params.get('categoryId') || '';
 
       if (!this.categoryId) {
-        this.productService
-          .getAll()
-          .subscribe((data) => {
-            this.products.set(data);
-          });
+        this.productService.getAll().subscribe((data) => {
+          this.products.set(data);
+        });
       } else {
         this.productService
           .getProductByCategory(this.categoryId)
@@ -57,5 +57,9 @@ export class CategoriesComponent {
 
   addItemToShoppingCar(product: Product) {
     this.shoppingCarService.addItemToShoppingCar(product);
+  }
+
+  getImageArray(imageUrls: string): string[] {
+    return imageUrls ? imageUrls.split(';').map((url) => url.trim()) : [];
   }
 }

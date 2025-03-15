@@ -4,12 +4,42 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --primary-color: #1d1c1ce1;
+  --p-primary-500: #1d1c1ce1 !important;
+  --primary-hover-color: #333333; /* Negro más claro */
+  --primary-text-color: #ffffff; /* Texto blanco para contraste */
+  --primary-button-text-color: #ffffff; /* Color del texto en botones */
+}
+
 body {
   margin-top: 4rem !important ; /* Ajusta este valor según la altura del header */
 }
 
 .p-button {
-  border-width: 0 !important;
-  background-color: #1d1c1ce1 !important;
-  color: #fff !important;
+  background-color: var(--primary-color) !important;
+  color: var(--primary-button-text-color) !important;
+  border: none !important;
+}
+
+.p-button:hover {
+  background-color: var(--primary-hover-color) !important;
+}
+
+.p-carousel-indicators {
+  justify-content: center !important;
+}
+
+.p-carousel-indicators button {
+  background-color: black !important; /* Color negro */
+  border: none !important;
+  opacity: 0.5 !important;
+  width: 10px !important; /* Ajusta el tamaño si es necesario */
+  height: 10px !important;
+  transition: opacity 0.3s ease;
+}
+
+.p-carousel-indicators button.p-highlight {
+  background-color: black !important; /* Color negro cuando está activo */
+  opacity: 1 !important;
 }

@@ -18,7 +18,7 @@
                             <div
                                 class="w-28 h-28 sm:w-32 sm:h-32 md:w-40 md:h-40 flex justify-center items-center overflow-hidden rounded-lg bg-gray-100">
                                 <img class="block rounded w-full h-full object-contain"
-                                    [src]="shoppingCarItem.product.image_url" [alt]="shoppingCarItem.product.name" />
+                                    [src]="getImage(shoppingCarItem.product.image_url)" [alt]="shoppingCarItem.product.name" />
                             </div>
                             <div class="flex flex-col flex-1 w-full sm:w-auto gap-2 text-center sm:text-left">
                                 <span class="text-gray-500 font-medium text-sm">{{ shoppingCarItem.product.brand.name

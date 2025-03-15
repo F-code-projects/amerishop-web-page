@@ -76,4 +76,8 @@ export class ShoppingCarPageComponent {
 
     window.open(whatsappUrl, '_blank');
   }
+
+  getImage(imageUrls: string): string {
+    return imageUrls.split(';')[0].trim();
+  }
 }
