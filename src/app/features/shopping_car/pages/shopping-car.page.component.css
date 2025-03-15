@@ -1,0 +1,15 @@
+.main-content {
+    margin-bottom: 5rem; /* Ajusta este valor según la altura del botón fijo */
+  }
+  
+  .fixed-bottom {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 1rem;
+    background-color: white; /* Opcional: para que el fondo del botón no se mezcle con el contenido */
+    z-index: 1000; /* Asegura que el botón esté por encima de otros elementos */
+    display: flex;
+    justify-content: center;
+  }

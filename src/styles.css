@@ -4,3 +4,6 @@
 @tailwind components;
 @tailwind utilities;
 
+body {
+  margin-top: 4rem !important ; /* Ajusta este valor según la altura del header */
+}

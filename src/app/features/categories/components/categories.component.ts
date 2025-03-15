@@ -8,6 +8,7 @@ import { CommonModule } from '@angular/common';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ProductsService } from '../../products/services/products.service';
 import { Product } from '../../products/model/product.model';
+import { ShoppingCarService } from '../../shopping_car/services/shopping_car.service';
 @Component({
   selector: 'app-categories',
   standalone: true,
@@ -28,7 +29,7 @@ export class CategoriesComponent {
 
   constructor(
     private productService: ProductsService,
-    // private shoppingCarService: ShoppingCarService,
+    private shoppingCarService: ShoppingCarService,
     private route: ActivatedRoute,
     private router: Router
   ) {
@@ -47,6 +48,6 @@ export class CategoriesComponent {
   }
 
   addItemToShoppingCar(product: Product) {
-    // this.shoppingCarService.addItemToShoppingCar(product);
+    this.shoppingCarService.addItemToShoppingCar(product);
   }
 }
