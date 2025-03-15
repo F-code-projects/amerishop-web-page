@@ -7,3 +7,9 @@
 body {
   margin-top: 4rem !important ; /* Ajusta este valor según la altura del header */
 }
+
+.p-button {
+  border-width: 0 !important;
+  background-color: #1d1c1ce1 !important;
+  color: #fff !important;
+}

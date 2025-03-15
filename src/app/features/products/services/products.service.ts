@@ -12,7 +12,7 @@ export class ProductsService {
   httpUrl = `${environment.API_URL}/products`;
 
   getAll() {
-    return this.http.get<Array<Product>>(`${this.httpUrl}?select=*`);
+    return this.http.get<Array<Product>>(`${this.httpUrl}?select=*,brand(*)`);
   }
 
   getProductByCategory(categoryId: string) {

@@ -1,10 +1,7 @@
-<p-toolbar
-    [style]="{'padding': '0.5rem 1rem 0.5rem 1rem', 'position': 'fixed', 'top': '0', 'width': '100%', 'z-index': '1000' }">
+<p-toolbar [style]="{'padding': '0.5rem 1rem', 'position': 'fixed', 'top': '0', 'width': '100%', 'z-index': '1000'}">
     <ng-template #start>
         <div class="flex items-center gap-2">
-            <a routerLink="/home">
-                <img src="../../../assets/logo.jpg" style="width: 3.5rem;" />
-            </a>
+            <p-button icon="pi pi-home" routerLink="/home" routerLinkActive="active" size="large" styleClass="m-0" />
         </div>
     </ng-template>
 

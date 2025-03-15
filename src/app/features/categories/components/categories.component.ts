@@ -1,4 +1,4 @@
-import { Component, signal } from '@angular/core';
+import { Component, signal, Input } from '@angular/core';
 import { DataViewModule } from 'primeng/dataview';
 import { TagModule } from 'primeng/tag';
 import { SelectButtonModule } from 'primeng/selectbutton';
@@ -20,7 +20,7 @@ import { ShoppingCarService } from '../../shopping_car/services/shopping_car.ser
     SelectButtonModule,
     FormsModule,
     ButtonModule,
-    SkeletonModule
+    SkeletonModule,
   ],
   templateUrl: './categories.component.html',
   styleUrl: './categories.component.css',
@@ -32,20 +32,26 @@ export class CategoriesComponent {
   constructor(
     private productService: ProductsService,
     private shoppingCarService: ShoppingCarService,
-    private route: ActivatedRoute,
-    private router: Router
-  ) {
-    const navigation = this.router.getCurrentNavigation();
-  }
+    private route: ActivatedRoute
+  ) {}
 
   ngOnInit() {
     this.route.paramMap.subscribe((params) => {
       this.categoryId = params.get('categoryId') || '';
-      this.productService
-        .getProductByCategory(this.categoryId)
-        .subscribe((data) => {
-          this.products.set(data);
-        });
+
+      if (!this.categoryId) {
+        this.productService
+          .getAll()
+          .subscribe((data) => {
+            this.products.set(data);
+          });
+      } else {
+        this.productService
+          .getProductByCategory(this.categoryId)
+          .subscribe((data) => {
+            this.products.set(data);
+          });
+      }
     });
   }
 
