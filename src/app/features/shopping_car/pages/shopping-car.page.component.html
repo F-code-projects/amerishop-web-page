@@ -3,7 +3,7 @@
     <img src="assets/empty_car.png" alt="Carrito vacío" class="w-20 h-auto mb-4 opacity-80 mix-blend-lighten"/>
     <p class="text-gray-600 text-lg">No hay productos en el carrito en este momento.</p>
     <div class="mt-5">
-        <button pButton label="Buscar Artículos" routerLink="/home" routerLinkActive="active"></button>
+        <button pButton label="Buscar Artículos" [routerLink]="['/home']"></button>
     </div>
 </div>
 
@@ -45,7 +45,6 @@
     </div>
 </div>
 
-<!-- Botón fijo en la parte inferior -->
 <div class="fixed-bottom" *ngIf="shoppingCar().shoppingCarItems.length > 0">
     <button pButton icon="pi pi-shopping-cart" label="Comprar"
         class="w-full max-w-xs bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 rounded-lg shadow-md transition-all duration-200"

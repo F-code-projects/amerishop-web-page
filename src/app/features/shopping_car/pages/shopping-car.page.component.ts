@@ -3,7 +3,7 @@ import { Component, signal } from '@angular/core';
 import { DataViewModule } from 'primeng/dataview';
 import { CardModule } from 'primeng/card';
 import { ShoppingCarService } from '../services/shopping_car.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, RouterModule } from '@angular/router';
 import { ShoppingCar } from '../models/shopping_car.model';
 import { InputNumberModule } from 'primeng/inputnumber';
 import { ButtonModule } from 'primeng/button';
@@ -21,6 +21,7 @@ import { Product } from '../../products/model/product.model';
     ButtonModule,
     InputNumberModule,
     FormsModule,
+    RouterModule
   ],
   templateUrl: './shopping-car.page.component.html',
   styleUrl: './shopping-car.page.component.css',
