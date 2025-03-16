@@ -42,6 +42,23 @@
                     </div>
                 </div>
             </div>
+            <div class="px-6">
+                <div class="relative w-full h-[60px] rounded-lg overflow-hidden cursor-pointer my-4 transition-all duration-300 hover:scale-[1.02]"
+                    (click)="sendPersonalMessage()">
+
+                    <div class="absolute inset-0 bg-cover bg-center transition-all duration-300"
+                        [ngStyle]="{ 'background-image': 'url(' + 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT2-WS8N1oyDsD0C4xDT5il1s8MUyeYdyIuow&s' + ')' }"></div>
+
+                    <div
+                        class="absolute inset-0 bg-black bg-opacity-30 backdrop-blur-sm hover:bg-opacity-10 transition-all duration-300">
+                    </div>
+
+                    <div
+                        class="absolute inset-0 flex items-center justify-center text-white text-lg md:text-xl font-bold drop-shadow-md tracking-wide">
+                        Cotizar Producto
+                    </div>
+                </div>
+            </div>
         </div>
     </ng-template>
 </p-dataview>

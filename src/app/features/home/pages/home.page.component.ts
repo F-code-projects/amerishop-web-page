@@ -47,4 +47,13 @@ export class HomePageComponent {
   navigateToAllCategory() {
     this.router.navigate(['/category']);
   }
+
+  sendPersonalMessage() {
+    let message = 'Hola! Quiero cotizar un producto';
+    const encodedMessage = encodeURIComponent(message);
+    const phoneNumber = '+51926711737';
+    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+
+    window.open(whatsappUrl, '_blank');
+  }
 }
